@@ -10,10 +10,7 @@ import Stats from './Stats';
 class App extends React.Component{
   constructor(){
     super();
-    this.state = {
-      departments: [],
-      employees: []
-    };
+    this.state = store.getState()
     this.destroyEmployee = this.destroyEmployee.bind(this);
     this.removeFromDepartment = this.removeFromDepartment.bind(this);
   }
@@ -45,8 +42,8 @@ class App extends React.Component{
         <h1>Acme Employees And Departments</h1>
         <Stats employees={ employees }/>
         <Departments
-          departments={ departments }
-          employees={ employees }
+          // departments={ departments }
+          // employees={ employees }
           destroyEmployee = { destroyEmployee }
           removeFromDepartment = { removeFromDepartment }
       />
@@ -55,7 +52,6 @@ class App extends React.Component{
   }
 }
 
-// ReactDOM.render(<App />, document.querySelector('#root'));
 ReactDOM.render(
   <Provider store = {store}>
     <App />

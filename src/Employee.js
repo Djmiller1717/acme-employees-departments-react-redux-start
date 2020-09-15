@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux'
 
 const Employee = ({ employee, destroyEmployee, removeFromDepartment })=> {
   return (
@@ -14,4 +15,16 @@ const Employee = ({ employee, destroyEmployee, removeFromDepartment })=> {
   );
 };
 
-export default Employee;
+const mapStateToProps = (state) => {
+  return {
+    departments: state.departments,
+    employees: state.employees
+  }
+}
+const mapDispatchToProps = () => {
+  return {
+
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Employee)
